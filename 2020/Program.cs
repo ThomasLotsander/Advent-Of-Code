@@ -1,6 +1,7 @@
 ﻿using System;
 using _2020.Day1;
 using _2020.Day2;
+using _2020.Day3;
 
 namespace _2020
 {
@@ -15,6 +16,10 @@ namespace _2020
 
            Day2Hub day2 = new Day2Hub();
            day2.Run();
+
+
+           Day3Hub day3 = new Day3Hub();
+           day3.Run();
         }
     }
 }

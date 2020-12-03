@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
+using System.IO;
 using System.Text;
 
 namespace _2020.Day3
@@ -9,12 +10,27 @@ namespace _2020.Day3
     {
         public static string[] GetPuzzleInput()
         {
-            throw new NotImplementedException();
+            var inputText = File.ReadAllLines("CodeInputFiles/Day3PuzzleInput.txt");
+            return inputText;
         }
 
         public static string[] GetTestPuzzleInput()
         {
-            throw new NotImplementedException();
+            var t = new string[]
+            {
+                "..##.......",
+                "#...#...#..",
+                ".#....#..#.",
+                "..#.#...#.#",
+                ".#...##..#.",
+                "..#.##.....",
+                ".#.#.#....#",
+                ".#........#",
+                "#.##...#...",
+                "#...##....#",
+                ".#..#...#.#"
+            };
+            return t;
         }
     }
 }
