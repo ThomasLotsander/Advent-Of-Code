@@ -11,6 +11,8 @@ namespace _2020.Day1
             var testInput = CodeInput.GetTestPuzzleInput();
             var realInput = CodeInput.GetPuzzleInput();
 
+            Console.WriteLine("Day 1 Get the code!");
+
             Console.WriteLine(GetCodePuzzle1(realInput));
             Console.WriteLine(GetCodePuzzle2(realInput));
             Console.WriteLine("----------------");

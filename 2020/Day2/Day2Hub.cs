@@ -13,8 +13,12 @@ namespace _2020.Day2
             var realInput = CodeInput.GetPuzzleInput();
             var testInput = CodeInput.GetTestPuzzleInput();
 
+            Console.WriteLine("Day 2 Get the password");
+
             Puzzle1(realInput);
             Puzzle2(realInput);
+
+            Console.WriteLine("------------");
         }
 
         private void Puzzle1(string[] puzzleInput)

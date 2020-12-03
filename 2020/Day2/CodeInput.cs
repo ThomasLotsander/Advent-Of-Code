@@ -9,8 +9,8 @@ namespace _2020.Day2
     {
         public static string[] GetPuzzleInput()
         {
-            var text = File.ReadAllLines(@"Day2PuzzleInput.txt");
-            return text;
+            var inputText = File.ReadAllLines("CodeInputFiles/Day2PuzzleInput.txt");
+            return inputText;
 
         }
 

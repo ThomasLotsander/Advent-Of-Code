@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net.Security;
 using System.Text;
 
 namespace _2020.Day1
@@ -10,7 +11,7 @@ namespace _2020.Day1
     {
         public static int[] GetPuzzleInput()
         {
-            var inputText = File.ReadAllLines(@"Day1PuzzleInput.txt");
+            var inputText = File.ReadAllLines("CodeInputFiles/Day1PuzzleInput.txt");
             var inputNumbers = new int[inputText.Length];
 
             int index = 0;
@@ -38,5 +39,6 @@ namespace _2020.Day1
 
             return testPuzzleInput;
         }
+
     }
 }
