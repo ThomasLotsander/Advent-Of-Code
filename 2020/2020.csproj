@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="bin\Debug\netcoreapp3.1\Day2PuzzleInput.txt" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Include="bin\Debug\netcoreapp3.1\Day1PuzzleInput.txt" />
   </ItemGroup>
 

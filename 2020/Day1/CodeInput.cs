@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Text;
 
 namespace _2020.Day1
@@ -8,11 +10,18 @@ namespace _2020.Day1
     {
         public static int[] GetPuzzleInput()
         {
-            int[] puzzleInput = new[]
+            var inputText = File.ReadAllLines(@"Day1PuzzleInput.txt");
+            var inputNumbers = new int[inputText.Length];
+
+            int index = 0;
+            foreach (var line in inputText)
             {
-                1, 2
-            };
-            return puzzleInput;
+                inputNumbers[index] = int.Parse(line);
+                index++;
+            }
+
+            return inputNumbers;
+
         }
 
         public static int[] GetTestPuzzleInput()
