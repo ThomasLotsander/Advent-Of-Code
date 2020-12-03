@@ -7,8 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Day2\" />
-    <Folder Include="Day3\" />
+    <None Include="bin\Debug\netcoreapp3.1\Day1PuzzleInput.txt" />
   </ItemGroup>
 
 </Project>

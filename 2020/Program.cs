@@ -1,4 +1,5 @@
 ﻿using System;
+using _2020.Day1;
 
 namespace _2020
 {
@@ -7,6 +8,8 @@ namespace _2020
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+           Day1Hub.Run();
         }
     }
 }

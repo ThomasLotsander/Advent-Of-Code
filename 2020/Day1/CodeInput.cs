@@ -17,12 +17,17 @@ namespace _2020.Day1
 
         public static int[] GetTestPuzzleInput()
         {
-            int[] puzzleInput = new[]
+            var testPuzzleInput = new int[]
             {
-                1, 2
+                1721,
+                979,
+                366,
+                299,
+                675,
+                1456
             };
 
-            return puzzleInput;
+            return testPuzzleInput;
         }
     }
 }
