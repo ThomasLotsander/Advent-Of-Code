@@ -12,55 +12,68 @@ namespace _2020.Day3
             var realInput = CodeInput.GetPuzzleInput();
             var testInput = CodeInput.GetTestPuzzleInput();
 
-            p1(testInput);
-            p1(realInput);
+            Puzzle1(realInput);
+            Puzzle2(realInput);
 
         }
 
-        public void p1(string[] input)
+        public void Puzzle1(string[] puzzleInput)
         {
-            int[] slops = new[] { 1, 3, 5, 7, 1 };
-            int[] steps = new[] { 1, 1, 1, 1, 2 };
-
-            int nrOfTreesHit = 0;
-            double tot = 1;
-
-            int stepCont = 0;
-            int count = 1;
-            foreach (var slop in slops)
+            Console.WriteLine("Puzzle 1: Count trees hit");
+            int rightSteps = 0;
+            int treesHit = 0;
+            foreach (var row in puzzleInput.Skip(1))
             {
+                rightSteps += 3;
 
+                if (rightSteps >= row.Length)
+                    rightSteps = rightSteps - row.Length;
+                
+                if (row[rightSteps] == '#')
+                    treesHit++;
+            }
+
+            Console.WriteLine("Trees hit: " + treesHit);
+        }
+
+        public void Puzzle2(string[] input)
+        {
+            Console.WriteLine("Puzzle 2: Total trees hit on all slopes");
+            int[] rightStepsSlop = { 1, 3, 5, 7, 1 };
+            int[] downSteps = { 1, 1, 1, 1, 2 };
+
+            int treesHitThisSlope = 0;
+            double totalTreesHit = 1;
+
+            int rightSteps = 0;
+            int row = 1;
+            foreach (var slop in rightStepsSlop)
+            {
                 int index = 0;
 
                 foreach (var s in input.Skip(1))
                 {
-                    if (count % steps[stepCont] == 0)
+                    if (row % downSteps[rightSteps] == 0)
                     {
                         index += slop;
 
                         if (index >= s.Length)
-                        {
                             index = index - s.Length;
-                        }
 
 
                         if (s[index] == '#')
-                        {
-                            nrOfTreesHit++;
-                        }
+                            treesHitThisSlope++;
                     }
-
-                    count++;
-
+                    row++;
                 }
-                Console.WriteLine(nrOfTreesHit + " träd");
 
-                tot = tot * nrOfTreesHit;
-                nrOfTreesHit = 0;
-                stepCont++;
+                Console.WriteLine(treesHitThisSlope + " träd");
+                totalTreesHit = totalTreesHit * treesHitThisSlope;
+                treesHitThisSlope = 0;
+                rightSteps++;
             }
 
-            Console.WriteLine(tot);
+            Console.WriteLine(totalTreesHit);
         }
     }
 
