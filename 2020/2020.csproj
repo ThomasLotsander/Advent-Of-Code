@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Content Include="bin\Debug\netcoreapp3.1\Day2PuzzleInput.txt" />
     <Content Include="CodeInputFiles\Day1PuzzleInput.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -25,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="bin\Debug\netcoreapp3.1\Day1PuzzleInput.txt" />
+    <Folder Include="bin\Debug\netcoreapp3.1\" />
   </ItemGroup>
 
 </Project>
