@@ -23,6 +23,7 @@ namespace _2020.Day4
        };
         public void Run()
         {
+            Console.WriteLine("Day 4!");
             var puzzleInput = CodeInput.GetPuzzleInput("CodeInputFiles/Day4PuzzleInput.txt");
             var testPuzzleInput = CodeInput.GetPuzzleInput("CodeInputFiles/Day4TestPuzzleInput.txt");
 
@@ -32,7 +33,7 @@ namespace _2020.Day4
 
         public void Puzzle1(List<string> lines)
         {
-            Console.WriteLine("Get valid passports: Puzzle 1");
+            Console.WriteLine("Get code 1");
 
 
             int validPass = 0;
@@ -51,12 +52,12 @@ namespace _2020.Day4
 
             }
 
-            Console.WriteLine("Valid passports: " + validPass);
+            Console.WriteLine(validPass);
         }
 
         public void Puzzle2(List<string> lines)
         {
-            
+            Console.WriteLine("Get code 2");
             var passportList = new List<Dictionary<string, string>>();
             foreach (var line in lines)
             {
@@ -98,7 +99,7 @@ namespace _2020.Day4
                 }
                 
             }
-            Console.WriteLine("Valid pass puzzle 2: " + validPassports);
+            Console.WriteLine(validPassports);
         }
 
         private bool CheckRequiredFields(Dictionary<string, string> passport)

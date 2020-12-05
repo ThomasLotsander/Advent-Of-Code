@@ -13,16 +13,17 @@ namespace _2020.Day2
             var realInput = CodeInput.GetPuzzleInput();
             var testInput = CodeInput.GetTestPuzzleInput();
 
-            Console.WriteLine("Day 2 Get the password");
+            Console.WriteLine("Day 2!");
 
             Puzzle1(realInput);
             Puzzle2(realInput);
 
-            Console.WriteLine("------------");
         }
 
         private void Puzzle1(string[] puzzleInput)
         {
+            Console.WriteLine("Get code 1");
+
             int numberOfCorrectPasswords = 0;
 
             foreach (var input in puzzleInput)
@@ -48,6 +49,8 @@ namespace _2020.Day2
 
         private void Puzzle2(string[] puzzleInput)
         {
+            Console.WriteLine("Get code 2");
+
             int numberOfCorrectPasswords = 0;
 
             foreach (var input in puzzleInput)

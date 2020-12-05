@@ -9,6 +9,7 @@ namespace _2020.Day3
     {
         public void Run()
         {
+            Console.WriteLine("Day 3!");
             var realInput = CodeInput.GetPuzzleInput();
             var testInput = CodeInput.GetTestPuzzleInput();
 
@@ -19,7 +20,8 @@ namespace _2020.Day3
 
         public void Puzzle1(string[] puzzleInput)
         {
-            Console.WriteLine("Puzzle 1: Count trees hit");
+            Console.WriteLine("Get code 1");
+
             int rightSteps = 0;
             int treesHit = 0;
             foreach (var row in puzzleInput.Skip(1))
@@ -33,12 +35,13 @@ namespace _2020.Day3
                     treesHit++;
             }
 
-            Console.WriteLine("Trees hit: " + treesHit);
+            Console.WriteLine(treesHit);
         }
 
         public void Puzzle2(string[] input)
         {
-            Console.WriteLine("Puzzle 2: Total trees hit on all slopes");
+            Console.WriteLine("Get code 2");
+
             int[] rightStepsSlop = { 1, 3, 5, 7, 1 };
             int[] downSteps = { 1, 1, 1, 1, 2 };
 
@@ -67,7 +70,7 @@ namespace _2020.Day3
                     row++;
                 }
 
-                Console.WriteLine(treesHitThisSlope + " träd");
+                
                 totalTreesHit = totalTreesHit * treesHitThisSlope;
                 treesHitThisSlope = 0;
                 rightSteps++;
