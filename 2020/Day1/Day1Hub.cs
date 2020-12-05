@@ -41,7 +41,6 @@ namespace _2020.Day1
             Console.WriteLine("Get code 2");
 
             int length = puzzleInput.Length;
-            bool codeFound = false;
             for (int i = 0; i < length; i++)
             {
                 for (int j = 0; j < length; j++)
