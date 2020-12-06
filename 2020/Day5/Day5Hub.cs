@@ -57,14 +57,14 @@ namespace _2020.Day5
             }
 
             IDs.Sort();
-            int coutn = 0;
-            foreach (var i in IDs)
+            int count = 0;
+            foreach (var id in IDs)
             {
-                if (i + 1 != IDs[coutn + 1])
+                if (count + 1 < IDs.Count && id + 1 != IDs[count + 1])
                 {
-                    Console.WriteLine(IDs[coutn +1]);
+                    Console.WriteLine(IDs[count +1]);
                 }
-                coutn++;
+                count++;
 
             }
 

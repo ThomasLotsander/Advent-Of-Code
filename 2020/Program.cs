@@ -31,10 +31,10 @@ namespace _2020
             //day4.Run();
             //Console.WriteLine("------------");
 
-            //Day5Hub day5 = new Day5Hub();
-            //day5.Run();
-            //Console.WriteLine("------------");
-            
+            Day5Hub day5 = new Day5Hub();
+            day5.Run();
+            Console.WriteLine("------------");
+
             Day6Hub day6 = new Day6Hub();
             day6.Run();
             Console.WriteLine("------------");
