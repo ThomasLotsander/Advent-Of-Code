@@ -6,22 +6,23 @@ using System.Text;
 
 namespace _2020.Day5
 {
-   public class Day5Hub
-   {
-       List<int> _totalRows;
-       List<int> _totalColumns;
+    public class Day5Hub
+    {
+        List<int> _totalRows;
+        List<int> _totalColumns;
         public void Run()
         {
             Console.WriteLine("Day 5!");
 
             var puzzleInput = CodeInput.GetPuzzleInput("CodeInputFiles/Day5PuzzleInput.txt");
             var testInput = CodeInput.GetTestPuzzleInput();
-            
+
             Puzzle1(puzzleInput);
         }
 
         private void Puzzle1(string[] puzzleInput)
         {
+            List<int> IDs = new List<int>();
             Console.WriteLine("Get code 1");
 
             int highestSeatId = 0;
@@ -49,7 +50,22 @@ namespace _2020.Day5
                 {
                     highestSeatId = seatId;
                 }
-                Console.WriteLine(rowNr + " " + columnNr + " " + seatId);
+
+                IDs.Add(seatId);
+                
+                
+            }
+
+            IDs.Sort();
+            int coutn = 0;
+            foreach (var i in IDs)
+            {
+                if (i + 1 != IDs[coutn + 1])
+                {
+                    Console.WriteLine(IDs[coutn +1]);
+                }
+                coutn++;
+
             }
 
             Console.WriteLine("Highest seatId: " + highestSeatId);
@@ -66,15 +82,15 @@ namespace _2020.Day5
             switch (c)
             {
                 case 'F':
-                {
-                    _totalRows.RemoveRange(half, half);
-                    break;
-                }
+                    {
+                        _totalRows.RemoveRange(half, half);
+                        break;
+                    }
                 case 'B':
-                {
-                    _totalRows.RemoveRange(0, half);
-                    break;
-                }
+                    {
+                        _totalRows.RemoveRange(0, half);
+                        break;
+                    }
             }
         }
 
@@ -84,15 +100,15 @@ namespace _2020.Day5
             switch (c)
             {
                 case 'L':
-                {
-                    _totalColumns.RemoveRange(half, half);
-                    break;
-                }
+                    {
+                        _totalColumns.RemoveRange(half, half);
+                        break;
+                    }
                 case 'R':
-                {
-                    _totalColumns.RemoveRange(0, half);
-                    break;
-                }
+                    {
+                        _totalColumns.RemoveRange(0, half);
+                        break;
+                    }
             }
         }
 
