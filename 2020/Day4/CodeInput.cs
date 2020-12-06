@@ -10,7 +10,6 @@ namespace _2020.Day4
     {
         public static List<string> GetPuzzleInput(string path)
         {
-
             string ln;
             string batchLine = "";
             var lines = new List<string>();
