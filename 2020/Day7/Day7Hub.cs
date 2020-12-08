@@ -5,7 +5,7 @@ using System.Text;
 
 namespace _2020.Day7
 {
-    class Day8Hub
+    class Day7Hub
     {
         public void Run()
         {

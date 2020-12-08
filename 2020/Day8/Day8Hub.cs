@@ -5,57 +5,104 @@ using System.Text;
 
 namespace _2020.Day8
 {
-    class Day7Hub
+    class Day8Hub
     {
         private int accumulator;
         public void Run()
         {
             Console.WriteLine("Day 8!");
-            var testInput = CodeInput.GetPuzzleInput("CodeInputFiles/Day8TestPuzzleInput.txt");
-            var realInput = CodeInput.GetPuzzleInput("CodeInputFiles/Day8PuzzleInput.txt");
+            var testInput = CodeInput.GetTestPuzzleInput();
+            var realInput = CodeInput.GetPuzzleInput();
 
             Puzzle1(testInput);
             //Puzzle2(testInput);
         }
 
-        private void Puzzle1(string[] input)
+        private void Puzzle1(List<Day8Code> puzzleInput)
         {
+
+            Console.WriteLine("Get Code Puzzle 1");
             accumulator = 0;
-            for (int i = 0; i < input.Length; i++)
+            int index = 0;
+            var changedIndexArray = new List<int>();
+            int indexToChange = 0;
+            bool isChaged = false;
+
+            while (true)
             {
-                var code = input[i].Split(' ');
-                bool add = code[1].First() == '+';
-                //int number = code[1].Skip(1).Take()
-                var number = int.Parse(String.Join("", code[1].Where(char.IsDigit)));
+                if (index == puzzleInput.Count - 1)
+                {
+                    
+                }
+                Console.WriteLine("Index: " + index + " Acc: " + accumulator);
+                var input = puzzleInput[index];
+
+                if (input.Visited)
+                {
+                    Console.WriteLine("---------");
+                    accumulator = 0;
+                    isChaged = false;
+                    input.Visited = false;
+                    index = 0;
+
+                    puzzleInput = CodeInput.GetPuzzleInput();
+                    //puzzleInput = CodeInput.GetTestPuzzleInput();
+
+                    continue;
+                }
+                input.Visited = true;
 
 
-                switch (code[0])
+                if (!isChaged)
+                {
+                    if (input.code == "jmp" || input.code == "nop")
+                    {
+                        if (!changedIndexArray.Contains(index))
+                        {
+                            if (input.code == "jmp")
+                            {
+                                input.code = "nop";
+                            }
+                            else if (input.code == "nop")
+                            {
+                                input.code = "jmp";
+                            }
+                            isChaged = true;
+                            changedIndexArray.Add(index);
+                        }
+                    }
+                }
+
+
+                switch (input.code)
                 {
                     case "acc":
                         {
-                            if (add)
-                                accumulator += number;
+                            if (input.add)
+                                accumulator += input.number;
                             else
-                                accumulator -= number;
+                                accumulator -= input.number;
+
+                            index++;
                             break;
                         }
                     case "jmp":
                         {
-                            if (add)
-                                i += number;
+                            if (input.add)
+                                index += input.number;
                             else
-                                i -= i;
+                                index -= input.number;
 
                             break;
                         }
                     case "nop":
                         {
+                            index++;
                             break;
                         }
                 }
             }
-            Console.WriteLine("Get Code Puzzle 1");
-
+            Console.WriteLine("Value of Acc: " + accumulator);
 
         }
 
