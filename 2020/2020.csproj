@@ -20,9 +20,15 @@
     <None Remove="CodeInputFiles\Day5PuzzleInput.txt" />
     <None Remove="CodeInputFiles\Day6PuzzleInput.txt" />
     <None Remove="CodeInputFiles\Day6TestPuzzleInput.txt" />
+    <None Remove="CodeInputFiles\Day7PuzzleInput.txt" />
+    <None Remove="CodeInputFiles\Day7TestPuzzleInput.txt" />
+    <None Remove="CodeInputFiles\Day8PuzzleInput.txt" />
   </ItemGroup>
 
   <ItemGroup>
+    <Content Include="CodeInputFiles\Day8PuzzleInput.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Content Include="CodeInputFiles\Day1PuzzleInput.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
@@ -42,6 +48,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="CodeInputFiles\Day6PuzzleInput.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CodeInputFiles\Day7PuzzleInput.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="CodeInputFiles\Day7TestPuzzleInput.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="CodeInputFiles\Day6TestPuzzleInput.txt">
