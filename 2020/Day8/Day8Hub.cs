@@ -14,39 +14,34 @@ namespace _2020.Day8
             var testInput = CodeInput.GetTestPuzzleInput();
             var realInput = CodeInput.GetPuzzleInput();
 
-            Puzzle1(testInput);
+            Puzzle1(realInput);
             //Puzzle2(testInput);
         }
 
         private void Puzzle1(List<Day8Code> puzzleInput)
         {
-
             Console.WriteLine("Get Code Puzzle 1");
             accumulator = 0;
             int index = 0;
             var changedIndexArray = new List<int>();
-            int indexToChange = 0;
             bool isChaged = false;
 
             while (true)
             {
                 if (index == puzzleInput.Count - 1)
                 {
-                    
+                    break;
                 }
-                Console.WriteLine("Index: " + index + " Acc: " + accumulator);
+                //Console.WriteLine("Index: " + index + " Acc: " + accumulator);
                 var input = puzzleInput[index];
 
                 if (input.Visited)
                 {
-                    Console.WriteLine("---------");
                     accumulator = 0;
                     isChaged = false;
                     input.Visited = false;
                     index = 0;
-
                     puzzleInput = CodeInput.GetPuzzleInput();
-                    //puzzleInput = CodeInput.GetTestPuzzleInput();
 
                     continue;
                 }

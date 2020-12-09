@@ -41,13 +41,13 @@ namespace _2020
             //day6.Run();
             //Console.WriteLine("------------");
 
-            //Day7Hub day7 = new Day7Hub();
-            //day7.Run();
-            //Console.WriteLine("------------");
-
-            Day8Hub day8 = new Day8Hub();
-            day8.Run();
+            Day7Hub day7 = new Day7Hub();
+            day7.Run();
             Console.WriteLine("------------");
+
+            //Day8Hub day8 = new Day8Hub();
+            //day8.Run();
+            //Console.WriteLine("------------");
 
         }
     }

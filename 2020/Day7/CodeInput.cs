@@ -21,10 +21,12 @@ namespace _2020.Day7
                     var bags = new List<Bag>();
                     var splitLn = ln.Split("bags contain");
                     var bagType = splitLn[0].Trim();
+                    var containsBags = splitLn[1];
+
 
                     foreach (var b in splitLn[1].Split(','))
                     {
-                        if (b.Trim() != "no other bags.")
+                        if (!b.Trim().Contains("no other bags"))
                             bags.Add(SetUpBag(b.Trim()));
                     }
 
@@ -43,24 +45,95 @@ namespace _2020.Day7
             {
                 if (bag.BagsList.Any())
                 {
-                    foreach (var bag1 in bag.BagsList)
-                    {
-                        var result = bagList.FirstOrDefault(x => x.BagType == bag1.BagType);
-                    }
+                    SetUpBaglistForBag(bag.BagsList);
                 }
+            }
+
+            var firstBag = bagList[0];
+            var firstlist = firstBag.BagsList;
+
+            foreach (var bag in bagList)
+            {
+                bag.HasGold = GetInfoForevar(bag.BagsList);
             }
 
             foreach (var bag in bagList)
             {
-                if (bag.BagsList.Any())
+                Console.WriteLine(bag.BagType + " \t" + bag.HasGold);
+            }
+
+            Console.WriteLine("Titta: " + bagList.Count(x => x.HasGold));
+            return bagList;
+        }
+
+        private static void SetUpBaglistForBag(List<Bag> bags)
+        {
+            foreach (var bag1 in bags)
+            {
+                var originalBag = bagList.FirstOrDefault(x => x.BagType == bag1.BagType);
+                bag1.BagsList = originalBag.BagsList;
+
+                if (originalBag.BagsList.Any())
                 {
-                    foreach (var bag1 in bag.BagsList)
-                    {
-                        bag1.HasGold = CheckIfBagHasGold(bag1);
-                    }
+                    SetUpBaglistForBag(originalBag.BagsList);
                 }
             }
-            return bagList;
+        }
+
+        private static bool GetInfoForevar(List<Bag> inputBag)
+        {
+            if (!inputBag.Any())
+            {
+                return false;
+            }
+
+
+            if (inputBag.Any(x => x.BagType.Contains("shiny gold")))
+            {
+                return true;
+            }
+
+
+            foreach (var bag in inputBag)
+            {
+                    bag.HasGold = GetInfoForevar(bag.BagsList);
+                    if (bag.HasGold)
+                    {
+                        return true;
+                    }
+
+                //if (bag.BagType == "dull purple")
+                //{
+
+                //}
+
+                //if (bag.BagsList.Any(x => x.BagType.Contains("shiny gold")))
+                //{
+                //    bag.HasGold = true;
+                //    inputBag.HasGold = true;
+                //}
+
+                //if (bagList.FirstOrDefault(x => x.BagType == bag.BagType).HasGold)
+                //{
+                //    bag.HasGold = true;
+                //}
+
+                //if (bag.BagsList.Any())
+                //{
+                //    GetInfoForevar(bag);
+                //}
+            }
+
+            if (inputBag.Any(x => x.BagType.Contains("shiny gold")))
+            {
+                return true;
+            }
+
+
+
+            return false;
+
+
         }
 
         private static Bag SetUpBag(string bagString)
@@ -75,14 +148,6 @@ namespace _2020.Day7
             return bag;
         }
 
-        private static bool CheckIfBagHasGold(Bag bag)
-        {
-            var result = bagList.FirstOrDefault(x => x.BagType == bag.BagType);
-            if (result != null)
-            {
-                return result.HasGold;
-            }
-            return false;
-        }
+
     }
 }
