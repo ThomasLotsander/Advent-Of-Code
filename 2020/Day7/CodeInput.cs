@@ -21,7 +21,20 @@ namespace _2020.Day7
                     var bags = new List<Bag>();
                     var splitLn = ln.Split("bags contain");
                     var bagType = splitLn[0].Trim();
-                    var containsBags = splitLn[1];
+                    var containsBags = splitLn[1].Trim().Split(',');
+                    int numberOfBags = 0;
+
+                    if (containsBags.Any())
+                    {
+                        foreach (var nrOfBagsString in containsBags)
+                        {
+                            if (!nrOfBagsString.Contains("no other bags"))
+                            {
+                                numberOfBags += int.Parse(nrOfBagsString.Trim()[0].ToString());
+                            }
+                        }
+                    }
+                    
 
 
                     foreach (var b in splitLn[1].Split(','))
@@ -32,7 +45,7 @@ namespace _2020.Day7
 
                     var bag = new Bag
                     {
-                        NumberOfBags = 1,
+                        NumberOfBags = numberOfBags,
                         BagType = bagType,
                         HasGold = splitLn[1].Contains("shiny gold"),
                         BagsList = bags
@@ -101,27 +114,6 @@ namespace _2020.Day7
                     {
                         return true;
                     }
-
-                //if (bag.BagType == "dull purple")
-                //{
-
-                //}
-
-                //if (bag.BagsList.Any(x => x.BagType.Contains("shiny gold")))
-                //{
-                //    bag.HasGold = true;
-                //    inputBag.HasGold = true;
-                //}
-
-                //if (bagList.FirstOrDefault(x => x.BagType == bag.BagType).HasGold)
-                //{
-                //    bag.HasGold = true;
-                //}
-
-                //if (bag.BagsList.Any())
-                //{
-                //    GetInfoForevar(bag);
-                //}
             }
 
             if (inputBag.Any(x => x.BagType.Contains("shiny gold")))

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading.Channels;
 using _2020.Day1;
 using _2020.Day2;
 using _2020.Day3;
@@ -7,6 +8,7 @@ using _2020.Day5;
 using _2020.Day6;
 using _2020.Day7;
 using _2020.Day8;
+using _2020.Day9;
 
 namespace _2020
 {
@@ -16,6 +18,7 @@ namespace _2020
         {
             Console.WriteLine("Advent of code 2020!");
             Console.WriteLine("------------");
+
 
             //Day1Hub day1 = new Day1Hub();
             //day1.Run();
@@ -41,13 +44,17 @@ namespace _2020
             //day6.Run();
             //Console.WriteLine("------------");
 
-            Day7Hub day7 = new Day7Hub();
-            day7.Run();
-            Console.WriteLine("------------");
+            //Day7Hub day7 = new Day7Hub();
+            //day7.Run();
+            //Console.WriteLine("------------");
 
             //Day8Hub day8 = new Day8Hub();
             //day8.Run();
             //Console.WriteLine("------------");
+
+            Day9Hub day9 = new Day9Hub();
+            day9.Run();
+            Console.WriteLine("-------------");
 
         }
     }

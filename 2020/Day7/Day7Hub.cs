@@ -10,11 +10,14 @@ namespace _2020.Day7
         public void Run()
         {
             Console.WriteLine("Day 7!");
-            //var puzzle = CodeInput.GetPuzzleInput("CodeInputFiles/Day7TestPuzzleInput.txt");
-            var puzzle = CodeInput.GetPuzzleInput("CodeInputFiles/Day7PuzzleInput.txt");
+            var puzzle = CodeInput.GetPuzzleInput("CodeInputFiles/Day7TestPuzzleInput.txt");
+            //var puzzle = CodeInput.GetPuzzleInput("CodeInputFiles/Day7PuzzleInput.txt");
 
-            Puzzle1(puzzle);
-            //Puzzle2(testInput);
+            Console.WriteLine("Räkna");
+            Console.WriteLine(1 + 1*2);
+
+            //Puzzle1(puzzle);
+            Puzzle2(puzzle);
         }
 
         private void Puzzle1(List<Bag> input)
@@ -23,23 +26,39 @@ namespace _2020.Day7
 
             int totlaGold = input.Count(x => x.HasGold);
 
-            int goldCount = 0;
-            foreach (var bag in input)
-            {
-                if (bag.HasGold)
-                {
-                    goldCount++;
-                }
-              
-            }
-
-            Console.WriteLine("Total gold count: " + goldCount);
+            Console.WriteLine("Total gold count: " + totlaGold);
           
         }
 
-        private void Puzzle2(string[] input)
+        private void Puzzle2(List<Bag> input)
         {
             Console.WriteLine("Get Code Puzzle 2");
+            var shinyGoldBag = input.FirstOrDefault(x => x.BagType.Equals("shiny gold"));
+
+
+            GetNrOfBagsInBag(shinyGoldBag);
+            foreach (var bag in shinyGoldBag.BagsList)
+            {
+                
+            }
+
+        }
+
+        int numToReturn = 0;
+        private int GetNrOfBagsInBag(Bag inputBag)
+        {
+            
+            if (inputBag.BagsList.Any())
+            {
+                numToReturn += inputBag.NumberOfBags;
+               
+                foreach (var bag in inputBag.BagsList)
+                {
+                    var result = GetNrOfBagsInBag(bag);
+                }
+            }
+
+            return numToReturn;
 
         }
     }
