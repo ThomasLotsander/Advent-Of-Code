@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Threading.Channels;
 using _2020.Day1;
+using _2020.Day10;
 using _2020.Day2;
 using _2020.Day3;
 using _2020.Day4;
@@ -52,10 +53,13 @@ namespace _2020
             //day8.Run();
             //Console.WriteLine("------------");
 
-            Day9Hub day9 = new Day9Hub();
-            day9.Run();
-            Console.WriteLine("-------------");
+            //Day9Hub day9 = new Day9Hub();
+            //day9.Run();
+            //Console.WriteLine("-------------");
 
+            Day10Hub day10 = new Day10Hub();
+            day10.Run();
+            Console.WriteLine("----------");
         }
     }
 }
